@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1">
+
+	<persistence-unit name="sample-eclipselink-partitioning" transaction-type="JTA">
+		<jta-data-source>jdbc/sample-eclipselink-partitioning</jta-data-source>
+		<class>com.github.nagaseyasuhito.sample.eclipselink.partitioning.entity.User</class>
+
+		<properties>
+			<property name="eclipselink.connection-pool.partition0.jtaDataSource" value="jdbc/sample-eclipselink-partitioning0" />
+			<property name="eclipselink.connection-pool.partition1.jtaDataSource" value="jdbc/sample-eclipselink-partitioning1" />
+			<property name="eclipselink.connection-pool.partition2.jtaDataSource" value="jdbc/sample-eclipselink-partitioning2" />
+			<property name="eclipselink.connection-pool.partition3.jtaDataSource" value="jdbc/sample-eclipselink-partitioning3" />
+
+			<!--property name="eclipselink.ddl-generation" value="create-tables" /-->
+			<property name="eclipselink.create-ddl-jdbc-file-name" value="create-table.ddl"/>
+			<property name="eclipselink.ddl-generation.output-mode" value="both"/>
+			<!--property name="eclipselink.logging.level.sql" value="FINE" /-->
+		</properties>
+	</persistence-unit>
+</persistence>

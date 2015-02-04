@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE resources PUBLIC
+    "-//GlassFish.org//DTD GlassFish Application Server 3.1 Resource Definitions//EN"
+    "http://glassfish.org/dtds/glassfish-resources_1_5.dtd">
+<resources>
+	<jdbc-resource pool-name="sample-eclipselink-partitioning" jndi-name="jdbc/sample-eclipselink-partitioning" />
+
+	<jdbc-resource pool-name="sample-eclipselink-partitioning0" jndi-name="jdbc/sample-eclipselink-partitioning0" />
+	<jdbc-resource pool-name="sample-eclipselink-partitioning1" jndi-name="jdbc/sample-eclipselink-partitioning1" />
+	<jdbc-resource pool-name="sample-eclipselink-partitioning2" jndi-name="jdbc/sample-eclipselink-partitioning2" />
+	<jdbc-resource pool-name="sample-eclipselink-partitioning3" jndi-name="jdbc/sample-eclipselink-partitioning3" />
+
+	<jdbc-connection-pool name="sample-eclipselink-partitioning" res-type="javax.sql.XADataSource" datasource-classname="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource">
+		<property name="url" value="jdbc:mysql://localhost/sample" />
+		<property name="user" value="root"></property>
+		<property name="password" value="passwd"></property>
+	</jdbc-connection-pool>
+
+	<jdbc-connection-pool name="sample-eclipselink-partitioning0" res-type="javax.sql.XADataSource" datasource-classname="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource">
+		<property name="url" value="jdbc:mysql://localhost/sample0" />
+		<property name="user" value="root"></property>
+		<property name="password" value="passwd"></property>
+	</jdbc-connection-pool>
+	<jdbc-connection-pool name="sample-eclipselink-partitioning1" res-type="javax.sql.XADataSource" datasource-classname="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource">
+		<property name="url" value="jdbc:mysql://localhost/sample1" />
+		<property name="user" value="root"></property>
+		<property name="password" value="passwd"></property>
+	</jdbc-connection-pool>
+	<jdbc-connection-pool name="sample-eclipselink-partitioning2" res-type="javax.sql.XADataSource" datasource-classname="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource">
+		<property name="url" value="jdbc:mysql://localhost/sample2" />
+		<property name="user" value="root"></property>
+		<property name="password" value="passwd"></property>
+	</jdbc-connection-pool>
+	<jdbc-connection-pool name="sample-eclipselink-partitioning3" res-type="javax.sql.XADataSource" datasource-classname="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource">
+		<property name="url" value="jdbc:mysql://localhost/sample3" />
+		<property name="user" value="root"></property>
+		<property name="password" value="passwd"></property>
+	</jdbc-connection-pool>
+</resources>

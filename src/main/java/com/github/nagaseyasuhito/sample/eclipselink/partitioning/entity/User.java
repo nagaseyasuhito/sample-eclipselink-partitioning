@@ -8,20 +8,23 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import org.eclipse.persistence.annotations.HashPartitioning;
 import org.eclipse.persistence.annotations.Partitioned;
 
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
-@EqualsAndHashCode
-@Partitioned("hashPartitioningById")
 @HashPartitioning(
-	name = "hashPartitioningById",
-	partitionColumn = @Column(name = "id"),
-	connectionPools = { "partition0", "partition1", "partition2", "partition3", "partition4", "partition5", "partition6", "partition7" })
+		name = "hashPartitioningById",
+		partitionColumn = @Column(name = "id"),
+		connectionPools = { "partition0", "partition1", "partition2", "partition3" },
+		unionUnpartitionableQueries = true)
+@Partitioned("hashPartitioningById")
 public class User implements Serializable {
 	private static final long serialVersionUID = 9138208428859166924L;
 
