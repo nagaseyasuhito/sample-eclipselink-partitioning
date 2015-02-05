@@ -18,7 +18,7 @@ public abstract class BaseDao<T, I> {
 	protected interface EntityQuery<T> extends Query<T, T> {
 	}
 
-	@PersistenceContext
+	@PersistenceContext(unitName = "sample-eclipselink-partitioning")
 	private EntityManager entityManager;
 
 	protected abstract Class<T> getEntityClass();
